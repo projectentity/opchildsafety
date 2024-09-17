@@ -73,6 +73,57 @@
             text-align: center;
             font-size: 0.9em;
         }
+        .cta-buttons {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        .cta-button:hover {
+            background-color: #b71c1c;
+        }
+        #search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback {
+            margin: 20px 0;
+            background-color: #2c2c2c;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .feedback textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .feedback button {
+            background-color: #d32f2f;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .feedback button:hover {
+            background-color: #b71c1c;
+        }
+        .map {
+            height: 400px;
+            width: 100%;
+            margin: 20px 0;
+        }
         @media (max-width: 768px) {
             .container {
                 padding: 0 10px;
@@ -86,6 +137,12 @@
     </header>
 
     <div class="container">
+        <!-- Search Bar -->
+        <input type="text" id="search-bar" placeholder="Search for resources..." onkeyup="searchFunction()">
+
+        <!-- Map -->
+        <div id="map" class="map"></div>
+
         <div class="section">
             <h2>General Reporting Platforms</h2>
             <div class="card">
@@ -128,44 +185,73 @@
                     <li><a href="https://www.internethotline.jp/reports/edit/IHOU2" target="_blank">Japanese Child Abuse</a> - Report child abuse material in Japan.</li>
                     <li><a href="mailto:Stopca@telegram.org" target="_blank">Telegram</a> - Report child exploitation on Telegram. <br> Email: Stopca@telegram.org & abuse@telegram.org</li>
                     <li><a href="https://icq.com/support/en" target="_blank">ICQ</a> - Report abuse via the ICQ support page. <br> Email: support@icq.com</li>
-                    <li><a href="https://crimestoppers-uk.org/" target="_blank">CrimeStoppers (UK)</a> - Report child abuse and other crimes anonymously.</li>
-                    <li><a href="https://melden.meldpunt-kinderporno.nl/en" target="_blank">Melden-Meldpunt (Netherlands)</a> - Report child sexual abuse material in the Netherlands.</li>
-                    <li><a href="https://ecpat.org/contact-us/" target="_blank">ECPAT International</a> - Contact ECPAT for global child protection issues.</li>
-                    <li><a href="https://www.europol.europa.eu/report-a-crime/report-cybercrime-online" target="_blank">Europol (Cybercrime)</a> - Report cybercrime and child sexual abuse material to Europol.</li>
+                    <li><a href="mailto:abuse@orange.fr" target="_blank">Orange (France)</a> - Report abusive content hosted by Orange. <br> Email: abuse@orange.fr</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2>Additional Resources</h2>
-            <div class="card">
-                <ul>
-                    <li><a href="https://www.stopcrush.org/?page_id=1662" target="_blank">List of Agencies to Report Child Abuse</a> - A comprehensive list of agencies for reporting child abuse.</li>
-                    <li><a href="mailto:help@NSPCC.org.uk" target="_blank">National Society for the Prevention of Cruelty to Children (NSPCC)</a> - Report child abuse and exploitation. <br> Note: "We aim to respond within 72 hours. Please share as much information as you can about the child and the concerns you have. If you have any details that can help identify the child, like their name or address, please share them too."</li>
-                    <li><a href="mailto:integrity1@unicef.org" target="_blank">UNICEF - Preventing and Responding to Exploitation</a> - Report issues related to sexual exploitation and abuse by aid workers.</li>
-                    <li><a href="https://www.un.org/preventing-sexual-exploitation-and-abuse/content/how-report" target="_blank">Office of Internal Oversight Services (OIOS) - UN</a> - Report concerns related to sexual exploitation and abuse within the UN.</li>
-                    <li><a href="mailto:inspector@unhcr.org" target="_blank">UNHCR Inspector General's Office</a> - Report concerns related to child exploitation in UNHCR.</li>
-                    <li><a href="https://nationalcrimeagency.gov.uk/virtual-global-taskforce" target="_blank">Virtual Global Taskforce (VGT)</a> - International alliance for tackling child sexual abuse. <br> Email: virtualglobaltaskforce@nca.gov.uk (Note: This is not a direct reporting service for safeguarding concerns about a child or young person.)</li>
-                    <li><a href="https://www.interpol.int/en/Crimes/Crimes-against-children/International-Child-Sexual-Exploitation-database" target="_blank">Interpol - International Child Sexual Exploitation (ICSE)</a> - Report child sexual exploitation to Interpol. <br> Contact for Interpol: <a href="https://www.interpol.int/en/Contacts/Contact-INTERPOL" target="_blank">General Secretariat</a> <br> Help: "Unit *" ➡️ "Crimes against children"</li>
-                    <li><a href="https://www.fbi.gov/contact-us/field-offices" target="_blank">FBI - U.S.</a> - Report child exploitation and other crimes to the nearest field office.</li>
-                    <li><a href="mailto:Reporting@uspis.gov" target="_blank">United States Postal Inspection Service</a> - Report child exploitation and abuse via postal services.</li>
-                    <li><a href="https://www.ice.gov/webform/ice-tip-form" target="_blank">ICE - U.S.</a> - Report crimes, suspicious activity, and suspected child exploitation.</li>
-                    <li><a href="https://www.ice.gov/contact" target="_blank">ICE Contact</a> - General contact for ICE.</li>
-                    <li><a href="https://www.childwelfare.gov/organizations/?CWIGFunctionsaction=rols:main.dspList&rolType=Custom&RS_ID=5" target="_blank">State Child Abuse and Neglect Reporting Numbers (USA)</a> - Find state-specific reporting numbers.</li>
-                    <li><a href="https://www.icactaskforce.org/TaskForceContacts" target="_blank">Internet Crimes Against Children (ICAC) Task Force</a> - Contact ICAC Task Force units.</li>
-                    <li><a href="mailto:Criminal.Division@usdoj.gov" target="_blank">Child Exploitation and Obscenity Section (CEOS) - DOJ</a> - Report child exploitation and obscenity crimes.</li>
-                    <li><a href="https://www.afp.gov.au/report-crime" target="_blank">Australian Federal Police (AFP) - Reporting</a> - Report Commonwealth crimes, including crimes against children.</li>
-                    <li><a href="https://www.accce.gov.au/report" target="_blank">Australian Centre to Counter Child Exploitation (ACCCE)</a> - Report child exploitation and abuse.</li>
-                    <li><a href="mailto:childwelfare@dfat.gov.au" target="_blank">DFAT - Australia</a> - Reporting concerns or allegations of child exploitation or abuse. <br> Website: <a href="https://www.dfat.gov.au/international-relations/themes/child-protection/Pages/reporting-concerns-or-allegations-of-child-exploitation-or-abuse" target="_blank">DFAT Child Protection</a></li>
-                    <li><a href="https://www.dia.govt.nz/web/submitforms.nsf/cencomp" target="_blank">Digital Safety Group - New Zealand</a> - Investigates objectionable and restricted material in New Zealand.</li>
-                    <li><a href="https://www.dia.govt.nz/Digital-Safety-Report-Online-Child-Exploitation-material" target="_blank">Report Online Child Exploitation - New Zealand</a> - Report online child exploitation in New Zealand.</li>
-                </ul>
-            </div>
+        <!-- Call-to-Action Buttons -->
+        <div class="cta-buttons">
+            <a href="mailto:help@NSPCC.org.uk" class="cta-button">Report to NSPCC</a>
+            <a href="https://www.stopcrush.org/?page_id=1662" class="cta-button" target="_blank">See All Agencies</a>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="feedback">
+            <h2>Give Us Your Feedback</h2>
+            <form action="submit_feedback.php" method="post">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Child Safety Awareness. All rights reserved.</p>
+        <p>&copy; 2024 Report Child Abuse. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Search Function -->
+    <script>
+    function searchFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('search-bar');
+        filter = input.value.toUpperCase();
+        ul = document.querySelectorAll('.card ul');
+        for (i = 0; i < ul.length; i++) {
+            li = ul[i].getElementsByTagName('li');
+            for (var j = 0; j < li.length; j++) {
+                a = li[j].getElementsByTagName('a')[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[j].style.display = "";
+                } else {
+                    li[j].style.display = "none";
+                }
+            }
+        }
+    }
+    </script>
+
+    <!-- JavaScript for Map -->
+    <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: {lat: 0, lng: 0}
+        });
+
+        // Example marker
+        var marker = new google.maps.Marker({
+            position: {lat: -34.397, lng: 150.644},
+            map: map,
+            title: 'Resource Location'
+        });
+    }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
 </body>
 </html>
+
