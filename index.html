@@ -1,257 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Child Abuse</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1c1c1c;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #d32f2f;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        h2 {
-            color: #d32f2f;
-            border-bottom: 2px solid #d32f2f;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        a {
-            color: #ff5722;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #ff7043;
-            text-decoration: underline;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .section li {
-            margin-bottom: 15px;
-        }
-        .card {
-            background-color: #2c2c2c;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .card a {
-            display: block;
-            color: #ff5722;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #d32f2f;
-            color: #ffffff;
-            padding: 15px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        .cta-buttons {
-            margin: 20px 0;
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #d32f2f;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 5px;
-        }
-        .cta-button:hover {
-            background-color: #b71c1c;
-        }
-        #search-bar {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .feedback {
-            margin: 20px 0;
-            background-color: #2c2c2c;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .feedback textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 4px;
-        }
-        .feedback button {
-            background-color: #d32f2f;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .feedback button:hover {
-            background-color: #b71c1c;
-        }
-        .map {
-            height: 400px;
-            width: 100%;
-            margin: 20px 0;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 10px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OpChildSafety — Report Child Abuse Safely</title>
+
+<meta name="description" content="Privacy-safe directory for reporting child abuse and exploitation. No tracking. No logs. Static resource only.">
+
+<!-- Security & Privacy -->
+<meta http-equiv="Content-Security-Policy"
+content="
+default-src 'none';
+style-src 'self';
+img-src 'self';
+base-uri 'none';
+form-action 'none';
+frame-ancestors 'none';
+upgrade-insecure-requests;
+">
+
+<meta http-equiv="Referrer-Policy" content="no-referrer">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+
+<style>
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0f0f0f;
+    color: #e6e6e6;
+    line-height: 1.6;
+}
+
+header {
+    background: #8b0000;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.warning {
+    background: #1a1a1a;
+    border-left: 4px solid #ff3d00;
+    padding: 15px;
+    margin: 20px;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #ff3d00;
+    border-bottom: 1px solid #333;
+    padding-bottom: 6px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.card {
+    background: #1b1b1b;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 14px;
+}
+
+a {
+    color: #ff7043;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.badge {
+    display: inline-block;
+    background: #333;
+    color: #ccc;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+}
+
+.footer {
+    background: #8b0000;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.85rem;
+}
+
+.opsec {
+    background: #111;
+    border: 1px dashed #444;
+    padding: 15px;
+    margin-top: 40px;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>#OpChildSafety - Report Child Abuse</h1>
-    </header>
 
-    <div class="container">
-        <!-- Search Bar -->
-        <input type="text" id="search-bar" placeholder="Search for resources..." onkeyup="searchFunction()">
+<header>
+    <h1>#OpChildSafety</h1>
+    <p>Privacy-Safe Child Abuse Reporting Directory</p>
+</header>
 
-        <!-- Map -->
-        <div id="map" class="map"></div>
+<div class="warning">
+⚠️ If a child is in immediate danger, contact local emergency services or police immediately.
+</div>
 
-        <div class="section">
-            <h2>General Reporting Platforms</h2>
-            <div class="card">
-                <ul>
-                    <li><a href="https://report.cybertip.org" target="_blank">CyberTipline (All Child Abuse)</a> - Report all forms of child abuse.</li>
-                    <li><a href="https://report.iwf.org.uk/en" target="_blank">Internet Watch Foundation (IWF)</a> - Report child sexual abuse material.</li>
-                    <li><a href="https://www.inhope.org/EN?locale=en" target="_blank">In Hope - International Reporting Network</a> - Global network for reporting online child sexual abuse material.</li>
-                    <li><a href="https://reportharmfulcontent.com/advice/other/child-sexual-abuse-material-csam/" target="_blank">List of Platforms with Links</a> - A comprehensive list of platforms for reporting child sexual abuse material (CSAM).</li>
-                </ul>
-            </div>
-        </div>
+<div class="container">
 
-        <div class="section">
-            <h2>Social Media and Online Platforms</h2>
-            <div class="card">
-                <ul>
-                    <li><a href="https://help.twitter.com/en/forms/safety-and-sensitive-content/cse" target="_blank">X / Twitter</a> - Report child sexual abuse material.</li>
-                    <li><a href="https://help.instagram.com/659118497466447/" target="_blank">Instagram</a> - Report child exploitation and abuse.</li>
-                    <li><a href="https://support.snapchat.com/en-US/i-need-help" target="_blank">Snapchat</a> - Report child abuse and exploitation.</li>
-                    <li><a href="https://support.tiktok.com/en/safety-hc/report-a-problem" target="_blank">TikTok</a> - Report online abuse and exploitation.</li>
-                    <li><a href="https://support.google.com/youtube/answer/2801999" target="_blank">YouTube</a> - Report child exploitation and abuse.</li>
-                    <li><a href="https://help.pinterest.com/en/article/combating-online-child-exploitation" target="_blank">Pinterest</a> - Report child exploitation material.</li>
-                    <li><a href="https://help.twitch.tv/s/article/how-to-file-a-user-report?language=en_US" target="_blank">Twitch</a> - Report inappropriate content and abuse.</li>
-                    <li><a href="mailto:support@doodstream.com" target="_blank">Doodstream</a> - Report abusive content via email.</li>
-                    <li><a href="https://abuse.cloudflare.com" target="_blank">Cloudflare</a> - Report abuse hosted through Cloudflare services.</li>
-                    <li><a href="mailto:abuse@ipconnect.services" target="_blank">IP Connect Inc</a> - Report abusive content hosted by IP Connect Inc.</li>
-                    <li><a href="https://www.blogger.com/content-policy?hl=en-US&authuser#ChildSexualAbuseAndExploitation" target="_blank">Blogger (Google)</a> - Report child sexual abuse and exploitation.</li>
-                    <li><a href="https://support.discord.com/hc/en-us/requests/new?ticket_form_id=360000029731" target="_blank">Discord</a> - Report abuse and inappropriate content. <br> Email: lawenforcement@discord.com</li>
-                    <li><a href="mailto:support@onlyfans.com" target="_blank">OnlyFans</a> - Report abuse and inappropriate content. <br> Email: Compliance@onlyfans.com</li>
-                </ul>
-            </div>
-        </div>
+<div class="section">
+<h2>About This Site</h2>
+<div class="card">
+This site is a <strong>static directory</strong> of official child abuse reporting resources.<br>
+It does <strong>not</strong> collect data, run scripts, log visitors, or store reports.<br>
+All links redirect you to <strong>official reporting authorities</strong>.
+</div>
+</div>
 
-        <div class="section">
-            <h2>Country-Specific Reporting</h2>
-            <div class="card">
-                <ul>
-                    <li><a href="https://stop-it.savethechildren.it/segnala.php?lang=it" target="_blank">Stop-IT (Italy)</a> - Report online child exploitation in Italy.</li>
-                    <li><a href="https://t.co/E8xIgNSmtm" target="_blank">Brazil Child Abuse</a> - Report child abuse in Brazil.</li>
-                    <li><a href="https://www.internethotline.jp/reports/edit/IHOU2" target="_blank">Japanese Child Abuse</a> - Report child abuse material in Japan.</li>
-                    <li><a href="mailto:Stopca@telegram.org" target="_blank">Telegram</a> - Report child exploitation on Telegram. <br> Email: Stopca@telegram.org & abuse@telegram.org</li>
-                    <li><a href="https://icq.com/support/en" target="_blank">ICQ</a> - Report abuse via the ICQ support page. <br> Email: support@icq.com</li>
-                    <li><a href="mailto:abuse@orange.fr" target="_blank">Orange (France)</a> - Report abusive content hosted by Orange. <br> Email: abuse@orange.fr</li>
-                </ul>
-            </div>
-        </div>
+<div class="section">
+<h2>Global Reporting Platforms</h2>
+<div class="card">
+<ul>
+<li>
+<a href="https://report.cybertip.org" target="_blank" rel="noopener noreferrer">
+CyberTipline
+</a>
+<span class="badge">Global</span>
+</li>
 
-        <!-- Call-to-Action Buttons -->
-        <div class="cta-buttons">
-            <a href="mailto:help@NSPCC.org.uk" class="cta-button">Report to NSPCC</a>
-            <a href="https://www.stopcrush.org/?page_id=1662" class="cta-button" target="_blank">See All Agencies</a>
-        </div>
+<li>
+<a href="https://report.iwf.org.uk/en" target="_blank" rel="noopener noreferrer">
+Internet Watch Foundation (IWF)
+</a>
+<span class="badge">CSAM</span>
+</li>
 
-        <!-- Feedback Form -->
-        <div class="feedback">
-            <h2>Give Us Your Feedback</h2>
-            <form action="submit_feedback.php" method="post">
-                <label for="feedback">Your Feedback:</label>
-                <textarea id="feedback" name="feedback" rows="4" required></textarea>
-                <button type="submit">Submit Feedback</button>
-            </form>
-        </div>
-    </div>
+<li>
+<a href="https://www.inhope.org/EN?locale=en" target="_blank" rel="noopener noreferrer">
+INHOPE Network
+</a>
+<span class="badge">International</span>
+</li>
+</ul>
+</div>
+</div>
 
-    <footer>
-        <p>&copy; 2024 Report Child Abuse. All rights reserved.</p>
-    </footer>
+<div class="section">
+<h2>Major Online Platforms</h2>
+<div class="card">
+<ul>
+<li><a href="https://help.twitter.com/en/forms/safety-and-sensitive-content/cse" target="_blank">X / Twitter</a></li>
+<li><a href="https://help.instagram.com/659118497466447/" target="_blank">Instagram</a></li>
+<li><a href="https://support.snapchat.com/en-US/i-need-help" target="_blank">Snapchat</a></li>
+<li><a href="https://support.tiktok.com/en/safety-hc/report-a-problem" target="_blank">TikTok</a></li>
+<li><a href="https://support.google.com/youtube/answer/2801999" target="_blank">YouTube</a></li>
+<li><a href="https://support.discord.com/hc/en-us/requests/new?ticket_form_id=360000029731" target="_blank">Discord</a></li>
+<li><a href="https://abuse.cloudflare.com" target="_blank">Cloudflare</a></li>
+</ul>
+</div>
+</div>
 
-    <!-- JavaScript for Search Function -->
-    <script>
-    function searchFunction() {
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById('search-bar');
-        filter = input.value.toUpperCase();
-        ul = document.querySelectorAll('.card ul');
-        for (i = 0; i < ul.length; i++) {
-            li = ul[i].getElementsByTagName('li');
-            for (var j = 0; j < li.length; j++) {
-                a = li[j].getElementsByTagName('a')[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[j].style.display = "";
-                } else {
-                    li[j].style.display = "none";
-                }
-            }
-        }
-    }
-    </script>
+<div class="section">
+<h2>Country-Specific</h2>
+<div class="card">
+<ul>
+<li>🇮🇹 <a href="https://stop-it.savethechildren.it/segnala.php?lang=it" target="_blank">Italy — Stop-IT</a></li>
+<li>🇯🇵 <a href="https://www.internethotline.jp/reports/edit/IHOU2" target="_blank">Japan — Internet Hotline</a></li>
+<li>🇫🇷 Email: abuse@orange.fr</li>
+<li>📨 Telegram: Stopca@telegram.org</li>
+</ul>
+</div>
+</div>
 
-    <!-- JavaScript for Map -->
-    <script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 2,
-            center: {lat: 0, lng: 0}
-        });
+<div class="opsec">
+<h2>Safety & OPSEC Tips</h2>
+<ul>
+<li>Use private/incognito browsing</li>
+<li>Avoid shared or monitored devices</li>
+<li>Clear browser history after reporting</li>
+<li>Consider Tor Browser if at risk</li>
+<li>Never download or store illegal material</li>
+</ul>
+</div>
 
-        // Example marker
-        var marker = new google.maps.Marker({
-            position: {lat: -34.397, lng: 150.644},
-            map: map,
-            title: 'Resource Location'
-        });
-    }
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-    </script>
+</div>
+
+<div class="footer">
+This site is static, open-source, and stores no user data.<br>
+Use responsibly. Protect children. Protect yourself.
+</div>
+
 </body>
 </html>
-
