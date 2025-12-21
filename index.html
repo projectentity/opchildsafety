@@ -3,117 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>OpChildSafety — Report Child Abuse Safely</title>
-
-<meta name="description" content="Privacy-safe directory for reporting child abuse and exploitation. No tracking. No logs. Static resource only.">
-
-<!-- Security & Privacy -->
-<meta http-equiv="Content-Security-Policy"
-content="
-default-src 'none';
-style-src 'self';
-img-src 'self';
-base-uri 'none';
-form-action 'none';
-frame-ancestors 'none';
-upgrade-insecure-requests;
-">
-
-<meta http-equiv="Referrer-Policy" content="no-referrer">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
+<title>#OpChildSafety — Report Child Abuse</title>
 
 <style>
+:root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --accent: #e53935;
+    --accent-soft: #ff6f60;
+    --text: #e6e6e6;
+    --muted: #9aa0a6;
+    --border: #262a33;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #0f0f0f;
-    color: #e6e6e6;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
 }
 
+/* HEADER */
 header {
-    background: #8b0000;
-    padding: 20px;
+    background: linear-gradient(135deg, #b71c1c, #e53935);
+    padding: 28px 20px;
     text-align: center;
+    border-bottom: 1px solid #400;
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
 }
 
-.warning {
-    background: #1a1a1a;
-    border-left: 4px solid #ff3d00;
-    padding: 15px;
-    margin: 20px;
-    font-weight: 600;
+header p {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: #ffecec;
 }
 
+/* CONTAINER */
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 24px 16px 60px;
 }
 
-h2 {
-    color: #ff3d00;
-    border-bottom: 1px solid #333;
-    padding-bottom: 6px;
+/* SEARCH */
+.search-box {
+    margin: 20px 0 30px;
 }
 
+.search-box input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+}
+
+.search-box input::placeholder {
+    color: var(--muted);
+}
+
+/* SECTION */
 .section {
-    margin-bottom: 40px;
+    margin-bottom: 44px;
 }
 
+.section h2 {
+    margin-bottom: 16px;
+    color: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+    font-size: 1.4rem;
+}
+
+/* CARD */
 .card {
-    background: #1b1b1b;
-    padding: 15px;
-    border-radius: 6px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 18px 6px;
 }
 
-ul {
+.card ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-li {
-    margin-bottom: 14px;
+.card li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
 }
 
-a {
-    color: #ff7043;
+.card li:last-child {
+    border-bottom: none;
+}
+
+/* LINKS */
+.card a {
+    color: var(--accent-soft);
+    font-weight: 600;
     text-decoration: none;
 }
 
-a:hover {
+.card a:hover {
     text-decoration: underline;
 }
 
-.badge {
-    display: inline-block;
-    background: #333;
-    color: #ccc;
-    font-size: 0.75rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 6px;
+.card span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 4px;
 }
 
-.footer {
-    background: #8b0000;
+/* SAFETY BOX */
+.notice {
+    background: #111;
+    border: 1px solid #333;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 18px;
     text-align: center;
-    padding: 12px;
+    color: var(--muted);
     font-size: 0.85rem;
 }
 
-.opsec {
-    background: #111;
-    border: 1px dashed #444;
-    padding: 15px;
-    margin-top: 40px;
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
 }
 </style>
 </head>
@@ -122,96 +161,97 @@ a:hover {
 
 <header>
     <h1>#OpChildSafety</h1>
-    <p>Privacy-Safe Child Abuse Reporting Directory</p>
+    <p>Privacy-Safe • Static • Activist & Whistleblower Resource</p>
 </header>
-
-<div class="warning">
-⚠️ If a child is in immediate danger, contact local emergency services or police immediately.
-</div>
 
 <div class="container">
 
-<div class="section">
-<h2>About This Site</h2>
-<div class="card">
-This site is a <strong>static directory</strong> of official child abuse reporting resources.<br>
-It does <strong>not</strong> collect data, run scripts, log visitors, or store reports.<br>
-All links redirect you to <strong>official reporting authorities</strong>.
-</div>
+<div class="notice">
+⚠️ <strong>Safety Notice:</strong>  
+Do NOT download, share, or store illegal material.  
+Only report URLs, usernames, message IDs, hashes, or platform links.  
+Your safety and legality come first.
 </div>
 
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search platforms or agencies…" onkeyup="filterLinks()">
+</div>
+
+<!-- GENERAL -->
 <div class="section">
-<h2>Global Reporting Platforms</h2>
+<h2>Global Reporting Agencies</h2>
 <div class="card">
 <ul>
 <li>
-<a href="https://report.cybertip.org" target="_blank" rel="noopener noreferrer">
-CyberTipline
-</a>
-<span class="badge">Global</span>
+<a href="https://report.cybertip.org" target="_blank">CyberTipline (NCMEC)</a>
+<span>Global reporting for all child exploitation and abuse</span>
 </li>
-
 <li>
-<a href="https://report.iwf.org.uk/en" target="_blank" rel="noopener noreferrer">
-Internet Watch Foundation (IWF)
-</a>
-<span class="badge">CSAM</span>
+<a href="https://report.iwf.org.uk" target="_blank">Internet Watch Foundation (IWF)</a>
+<span>Child sexual abuse material (CSAM)</span>
 </li>
-
 <li>
-<a href="https://www.inhope.org/EN?locale=en" target="_blank" rel="noopener noreferrer">
-INHOPE Network
-</a>
-<span class="badge">International</span>
+<a href="https://www.inhope.org" target="_blank">INHOPE Network</a>
+<span>International hotline network</span>
+</li>
+<li>
+<a href="https://reportharmfulcontent.com" target="_blank">Report Harmful Content</a>
+<span>Aggregator of reporting portals</span>
 </li>
 </ul>
 </div>
 </div>
 
+<!-- SOCIAL -->
 <div class="section">
-<h2>Major Online Platforms</h2>
+<h2>Social Media & Hosting Platforms</h2>
 <div class="card">
 <ul>
 <li><a href="https://help.twitter.com/en/forms/safety-and-sensitive-content/cse" target="_blank">X / Twitter</a></li>
-<li><a href="https://help.instagram.com/659118497466447/" target="_blank">Instagram</a></li>
+<li><a href="https://help.instagram.com/454951664593321" target="_blank">Instagram</a></li>
 <li><a href="https://support.snapchat.com/en-US/i-need-help" target="_blank">Snapchat</a></li>
 <li><a href="https://support.tiktok.com/en/safety-hc/report-a-problem" target="_blank">TikTok</a></li>
 <li><a href="https://support.google.com/youtube/answer/2801999" target="_blank">YouTube</a></li>
-<li><a href="https://support.discord.com/hc/en-us/requests/new?ticket_form_id=360000029731" target="_blank">Discord</a></li>
+<li><a href="https://support.discord.com/hc/en-us/requests/new" target="_blank">Discord</a>
+<span>Email: lawenforcement@discord.com</span></li>
+<li><a href="mailto:stopca@telegram.org">Telegram</a>
+<span>Email: abuse@telegram.org</span></li>
 <li><a href="https://abuse.cloudflare.com" target="_blank">Cloudflare</a></li>
+<li><a href="mailto:support@onlyfans.com">OnlyFans</a>
+<span>Email: compliance@onlyfans.com</span></li>
 </ul>
 </div>
 </div>
 
+<!-- COUNTRY -->
 <div class="section">
-<h2>Country-Specific</h2>
+<h2>Country-Specific Hotlines</h2>
 <div class="card">
 <ul>
-<li>🇮🇹 <a href="https://stop-it.savethechildren.it/segnala.php?lang=it" target="_blank">Italy — Stop-IT</a></li>
-<li>🇯🇵 <a href="https://www.internethotline.jp/reports/edit/IHOU2" target="_blank">Japan — Internet Hotline</a></li>
-<li>🇫🇷 Email: abuse@orange.fr</li>
-<li>📨 Telegram: Stopca@telegram.org</li>
+<li><a href="https://stop-it.savethechildren.it" target="_blank">Italy — Stop-IT</a></li>
+<li><a href="https://www.safernet.org.br" target="_blank">Brazil — SaferNet</a></li>
+<li><a href="https://www.internethotline.jp" target="_blank">Japan — Internet Hotline</a></li>
+<li><a href="mailto:abuse@orange.fr">France — Orange Abuse</a></li>
 </ul>
 </div>
 </div>
 
-<div class="opsec">
-<h2>Safety & OPSEC Tips</h2>
-<ul>
-<li>Use private/incognito browsing</li>
-<li>Avoid shared or monitored devices</li>
-<li>Clear browser history after reporting</li>
-<li>Consider Tor Browser if at risk</li>
-<li>Never download or store illegal material</li>
-</ul>
 </div>
 
-</div>
+<footer>
+This page is static, privacy-respecting, and stores no data.  
+Mirror freely. Share safely.
+</footer>
 
-<div class="footer">
-This site is static, open-source, and stores no user data.<br>
-Use responsibly. Protect children. Protect yourself.
-</div>
+<script>
+function filterLinks() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.querySelectorAll(".card li");
+    items.forEach(item => {
+        item.style.display = item.innerText.toLowerCase().includes(input) ? "" : "none";
+    });
+}
+</script>
 
 </body>
 </html>
